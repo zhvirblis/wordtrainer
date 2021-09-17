@@ -1,4 +1,4 @@
-import Header from "../page-parts/header";
+import Header from "../page-parts/Header";
 
 export default function NotFound() {
     return (
