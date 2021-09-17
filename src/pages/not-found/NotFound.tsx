@@ -1,11 +1,11 @@
-import Header from "../page-parts/Header";
+import Header from "../../page-parts/Header";
 
-export default function Home() {
+export default function NotFound() {
     return (
         <div>
             <Header/>
             <div className="container">
-                Home
+                Page not found
             </div>
         </div>
     )
