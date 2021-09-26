@@ -1,3 +1,6 @@
+import { spawn } from "redux-saga/effects"
+import { routerSaga } from "./routerSagas";
+
 export default function* rootSaga() {
-    console.log("saga ready");
+    yield spawn(routerSaga);
 }
