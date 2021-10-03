@@ -8,11 +8,19 @@ import { history } from "./reducers";
 import { routerMiddleware } from "connected-react-router";
 
 let store: Store;
-let sagaMiddleware: SagaMiddleware = createSagaMiddleware();
-if(env.NODE_ENV === "production") {
-    store = createStore(reducer, applyMiddleware(sagaMiddleware, routerMiddleware(history)));
+const sagaMiddleware: SagaMiddleware = createSagaMiddleware();
+if (env.NODE_ENV === "production") {
+    store = createStore(
+        reducer,
+        applyMiddleware(sagaMiddleware, routerMiddleware(history))
+    );
 } else {
-    store = createStore(reducer, composeWithDevTools(applyMiddleware(sagaMiddleware,routerMiddleware(history))));
+    store = createStore(
+        reducer,
+        composeWithDevTools(
+            applyMiddleware(sagaMiddleware, routerMiddleware(history))
+        )
+    );
 }
 
 sagaMiddleware.run(sagas);

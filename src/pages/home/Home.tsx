@@ -5,11 +5,11 @@ import ModuleList from "./parts/ModuleList";
 export default function Home() {
     return (
         <div>
-            <Header/>
+            <Header />
             <div className="container">
-                <AddNewModule/>
-                <ModuleList/>
+                <AddNewModule />
+                <ModuleList />
             </div>
         </div>
-    )
-} 
+    );
+}
