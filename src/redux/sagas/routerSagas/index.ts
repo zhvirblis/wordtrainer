@@ -3,7 +3,7 @@ import { LOCATION_CHANGE } from "connected-react-router";
 import { getRouteConfig } from "../../../Routes";
 import RoutesIds from "../../../enums/routes";
 import { matchPath } from "react-router";
-import { AnyAction } from "redux";
+import { AnyAction } from "@reduxjs/toolkit";
 
 function* locationChanged(action: AnyAction) {
     const pathname: any = action.payload.location.pathname;

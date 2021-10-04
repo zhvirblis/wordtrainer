@@ -1,27 +1,22 @@
-import { env } from "process";
-import { createStore, applyMiddleware, Store } from "redux";
-import reducer from "./reducers";
-import { composeWithDevTools } from "redux-devtools-extension";
+import { configureStore, Store } from "@reduxjs/toolkit";
+import { connectRouter } from "connected-react-router";
 import createSagaMiddleware, { SagaMiddleware } from "redux-saga";
 import sagas from "./sagas";
-import { history } from "./reducers";
 import { routerMiddleware } from "connected-react-router";
+import { createBrowserHistory } from "history";
+import { dbReducer } from "./reducers/indexedDB";
 
-let store: Store;
+export const history = createBrowserHistory();
+
 const sagaMiddleware: SagaMiddleware = createSagaMiddleware();
-if (env.NODE_ENV === "production") {
-    store = createStore(
-        reducer,
-        applyMiddleware(sagaMiddleware, routerMiddleware(history))
-    );
-} else {
-    store = createStore(
-        reducer,
-        composeWithDevTools(
-            applyMiddleware(sagaMiddleware, routerMiddleware(history))
-        )
-    );
-}
+
+const store: Store = configureStore({
+    reducer: {
+        router: connectRouter(history),
+        db: dbReducer,
+    },
+    middleware: [sagaMiddleware, routerMiddleware(history)],
+});
 
 sagaMiddleware.run(sagas);
 

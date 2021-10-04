@@ -5,7 +5,7 @@ import About from "./pages/about/About";
 import NotFound from "./pages/not-found/NotFound";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
-import { history } from "./redux/reducers";
+import { history } from "./redux/index";
 import RoutesIds from "./enums/routes";
 
 const routes = [
