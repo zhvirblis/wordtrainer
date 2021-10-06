@@ -1,39 +1,39 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface DBState {
-    connected: boolean;
-    loading: boolean;
-    error: any;
-    request: IDBDatabase | null;
+export enum DBStatus {
+    NotConnected = "NotConnected",
+    Loading = "Loading",
+    Failed = "Failed",
+    Done = "Done",
 }
 
-const initialDBState: DBState = {
-    connected: false,
-    loading: false,
+export interface DBStateInterface {
+    status: DBStatus;
+    error: any;
+}
+
+const initialDBState: DBStateInterface = {
+    status: DBStatus.NotConnected,
     error: null,
-    request: null,
 };
 
 export const dbSlice = createSlice({
-    name: "db",
+    name: "indexDB",
     initialState: initialDBState,
     reducers: {
         init: (state) => {
-            state.loading = true;
-        },
-        connected: (state, action) => {
-            state.loading = false;
-            state.connected = true;
-            state.request = action.payload;
+            state.status = DBStatus.Loading;
         },
         failure: (state, action) => {
-            state.loading = false;
-            state.connected = false;
+            state.status = DBStatus.Failed;
             state.error = action.payload;
+        },
+        done: (state) => {
+            state.status = DBStatus.Done;
         },
     },
 });
 
-export const { init, connected, failure } = dbSlice.actions;
+export const { init, failure, done } = dbSlice.actions;
 
 export const dbReducer = dbSlice.reducer;

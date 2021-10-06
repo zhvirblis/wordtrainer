@@ -1,9 +1,5 @@
 import { call, put, select, takeEvery } from "redux-saga/effects";
-import {
-    init as initDBAction,
-    connected,
-    failure,
-} from "../../reducers/indexedDB";
+import { init as initDBAction, failure, done } from "../../reducers/indexedDB";
 import { newConn } from "../../../services/indexedDB";
 
 export function* startInitDB() {
@@ -12,14 +8,14 @@ export function* startInitDB() {
 
 export function* initDB(): Generator {
     try {
-        const request: any = yield call(newConn);
-        yield put(connected(request));
+        yield call(newConn);
+        yield put(done());
     } catch (err) {
         yield put(failure(err));
     }
 }
 
-export function* indexedDBSaga() {
+export function* indexedDBSaga(): Generator {
     yield takeEvery(initDBAction, initDB);
     yield call(startInitDB);
 }
