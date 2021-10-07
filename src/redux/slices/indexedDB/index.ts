@@ -1,5 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+export enum StoreStatus {
+    Loading = "Loading",
+    Updating = "Updating",
+    Failed = "Failed",
+    Done = "Done",
+}
+
 export enum DBStatus {
     NotConnected = "NotConnected",
     Loading = "Loading",

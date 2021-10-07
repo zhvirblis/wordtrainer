@@ -3,8 +3,6 @@ import { ConnectedRouter as Router, getLocation } from "connected-react-router";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import NotFound from "./pages/not-found/NotFound";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap";
 import { history } from "./redux/index";
 import RoutesIds from "./enums/routes";
 

@@ -2,8 +2,6 @@ import { openDB, IDBPDatabase } from "idb";
 
 let db: IDBPDatabase;
 
-const objDatas = ["modules"];
-
 export const newConn = async () => {
     db = await openDB("wordApp", 1, {
         upgrade: (database) => {
@@ -12,5 +10,11 @@ export const newConn = async () => {
                 autoIncrement: true,
             });
         },
+    });
+};
+
+export const addNewModule = async (name: string) => {
+    await db.add("modules", {
+        name,
     });
 };
