@@ -4,3 +4,17 @@
 .add-new-module .btn {
     margin-top: 20px;
 }
+.modules-list .module-item {
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.module-item .btn {
+    margin-right: 5px;
+}
+.modules-list h3 a {
+    color: var(--bs-body-color);
+    text-decoration: none;
+}
+.modules-list h3 a:hover {
+    text-decoration: underline;
+}
