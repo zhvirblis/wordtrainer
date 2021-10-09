@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "@redux-saga/core/effects";
 import { moduleActions } from "../../slices/indexedDB/modules";
-import { addNewModule } from "../../../services/indexedDB";
+import { addNewModule, getAllModules } from "../../../services/indexedDB";
 
 function* addNewModuleSaga(action: any): Generator {
     const name: string = action.payload;
@@ -13,7 +13,12 @@ function* addNewModuleSaga(action: any): Generator {
 }
 
 function* getAllModulesSaga(): Generator {
-   console.log("Get All Modules");
+    try {
+        const modules = yield call(getAllModules);
+        yield put(moduleActions.done(modules));
+    } catch (e) {
+        yield put(moduleActions.failure);
+    }
 }
 
 export function* modulesSaga(): Generator {

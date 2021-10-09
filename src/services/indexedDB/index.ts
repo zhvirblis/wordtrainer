@@ -18,3 +18,10 @@ export const addNewModule = async (name: string) => {
         name,
     });
 };
+
+export const getAllModules = async () => {
+    const tx = db.transaction("modules", "readonly");
+    const store = tx.objectStore("modules");
+    const modules = await store.getAll();
+    return modules;
+};
