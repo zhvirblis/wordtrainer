@@ -8,7 +8,7 @@ function* addNewModuleSaga(action: any): Generator {
         yield call(addNewModule, name);
         yield put(moduleActions.get());
     } catch (e) {
-        yield put(moduleActions.failure);
+        yield put(moduleActions.failure(e));
     }
 }
 
@@ -17,7 +17,7 @@ function* getAllModulesSaga(): Generator {
         const modules = yield call(getAllModules);
         yield put(moduleActions.done(modules));
     } catch (e) {
-        yield put(moduleActions.failure);
+        yield put(moduleActions.failure(e));
     }
 }
 

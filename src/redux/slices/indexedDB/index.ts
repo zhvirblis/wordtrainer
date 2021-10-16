@@ -44,3 +44,5 @@ export const dbSlice = createSlice({
 export const { init, failure, done } = dbSlice.actions;
 
 export const dbReducer = dbSlice.reducer;
+
+export const dbSelector = (state: any) => state.db;
