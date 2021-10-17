@@ -4,7 +4,7 @@ import { moduleActions } from "../../../redux/slices/indexedDB/modules";
 
 export default function AddNewModule() {
     const dispatch = useDispatch();
-    const [name, setName] = useState<string>();
+    const [name, setName] = useState<string>("");
     return (
         <div className="card add-new-module">
             <div className="card-header">
@@ -15,11 +15,13 @@ export default function AddNewModule() {
                     onSubmit={(e) => {
                         e.preventDefault();
                         dispatch(moduleActions.add(name));
+                        setName("");
                     }}
                 >
                     <div className="form-group">
                         <input
-                            onChange={(e) => setName(e.currentTarget.value)}
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
                             className="form-control"
                             placeholder="Name"
                             required
