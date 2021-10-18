@@ -30,7 +30,7 @@ export const moduleSlice = createSlice({
         edit: (state) => {
             state.status = StoreStatus.Updating;
         },
-        delete: (state) => {
+        delete: (state, action) => {
             state.status = StoreStatus.Updating;
         },
         done: (state, action) => {

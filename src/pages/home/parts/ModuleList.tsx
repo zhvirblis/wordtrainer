@@ -40,6 +40,11 @@ export default function ModuleList() {
                                     <button
                                         type="button"
                                         className="btn btn-outline-danger btn-sm"
+                                        onClick={() => {
+                                            dispatch(
+                                                moduleActions.delete(module.id)
+                                            );
+                                        }}
                                     >
                                         Delete
                                     </button>

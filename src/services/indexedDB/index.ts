@@ -26,3 +26,10 @@ export const getAllModules = async () => {
     await tx.done;
     return modules;
 };
+
+export const deleteModule = async (id: number) => {
+    const tx = db.transaction("modules", "readwrite");
+    const store = tx.objectStore("modules");
+    await store.delete(id);
+    await tx.done;
+}
