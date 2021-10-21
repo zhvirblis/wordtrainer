@@ -33,3 +33,11 @@ export const deleteModule = async (id: number) => {
     await store.delete(id);
     await tx.done;
 }
+
+
+export const editModule = async (id: number, newName: string) => {
+    const tx = db.transaction("modules", "readwrite");
+    const store = tx.objectStore("modules");
+    await store.put({ id, name: newName });
+    await tx.done;
+}
