@@ -2,7 +2,7 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { init as initDBAction, failure, done } from "../../slices/indexedDB";
 import { newConn } from "../../../services/indexedDB";
 
-export function* startInitDB() {
+export function* startInitDB(): Generator {
     yield put(initDBAction());
 }
 

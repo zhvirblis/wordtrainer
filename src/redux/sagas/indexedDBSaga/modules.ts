@@ -1,10 +1,18 @@
-import { call, put, takeEvery } from "@redux-saga/core/effects";
+import {
+    call,
+    CallEffect,
+    ForkEffect,
+    put,
+    PutEffect,
+    takeEvery,
+} from "@redux-saga/core/effects";
 import { moduleActions } from "../../slices/indexedDB/modules";
 import {
     addNewModule,
     getAllModules,
     deleteModule,
     editModule,
+    Module,
 } from "../../../services/indexedDB";
 
 function* addNewModuleSaga(action: any): Generator {
@@ -17,9 +25,13 @@ function* addNewModuleSaga(action: any): Generator {
     }
 }
 
-function* getAllModulesSaga(): Generator {
+function* getAllModulesSaga(): Generator<
+    CallEffect | PutEffect,
+    void,
+    Module[]
+> {
     try {
-        const modules = yield call(getAllModules);
+        const modules: Module[] = yield call(getAllModules);
         yield put(moduleActions.done(modules));
     } catch (e) {
         yield put(moduleActions.failure(e));
@@ -35,18 +47,16 @@ function* deleteModuleSaga(action: any): Generator {
     }
 }
 
-function* editModuleSaga(action: any): Generator
-{
+function* editModuleSaga(action: any): Generator {
     try {
         yield call(editModule, action.payload.id, action.payload.name);
         yield put(moduleActions.get());
     } catch (e) {
-	alert(JSON.stringify(e));
         yield put(moduleActions.failure(e));
     }
 }
 
-export function* modulesSaga(): Generator {
+export function* modulesSaga(): Generator<ForkEffect> {
     yield takeEvery(moduleActions.add, addNewModuleSaga);
     yield takeEvery(moduleActions.get, getAllModulesSaga);
     yield takeEvery(moduleActions.delete, deleteModuleSaga);

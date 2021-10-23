@@ -1,4 +1,8 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+    createSlice,
+    ActionCreatorWithPayload,
+    ActionCreatorWithoutPayload,
+} from "@reduxjs/toolkit";
 
 export enum StoreStatus {
     Loading = "Loading",
@@ -41,7 +45,15 @@ export const dbSlice = createSlice({
     },
 });
 
-export const { init, failure, done } = dbSlice.actions;
+export const {
+    init,
+    failure,
+    done,
+}: {
+    init: ActionCreatorWithoutPayload;
+    failure: ActionCreatorWithPayload<any>;
+    done: ActionCreatorWithoutPayload;
+} = dbSlice.actions;
 
 export const dbReducer = dbSlice.reducer;
 

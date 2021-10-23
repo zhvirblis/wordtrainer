@@ -2,7 +2,12 @@ import { openDB, IDBPDatabase } from "idb";
 
 let db: IDBPDatabase;
 
-export const newConn = async () => {
+export type Module = {
+    id: number;
+    name: string;
+};
+
+export const newConn = async (): Promise<void> => {
     db = await openDB("wordApp", 1, {
         upgrade: (database) => {
             database.createObjectStore("modules", {
@@ -13,31 +18,33 @@ export const newConn = async () => {
     });
 };
 
-export const addNewModule = async (name: string) => {
+export const addNewModule = async (name: string): Promise<void> => {
     await db.add("modules", {
         name,
     });
 };
 
-export const getAllModules = async () => {
+export const getAllModules = async (): Promise<Module[]> => {
     const tx = db.transaction("modules", "readonly");
     const store = tx.objectStore("modules");
-    const modules = await store.getAll();
+    const modules: Module[] = await store.getAll();
     await tx.done;
     return modules;
 };
 
-export const deleteModule = async (id: number) => {
+export const deleteModule = async (id: number): Promise<void> => {
     const tx = db.transaction("modules", "readwrite");
     const store = tx.objectStore("modules");
     await store.delete(id);
     await tx.done;
-}
+};
 
-
-export const editModule = async (id: number, newName: string) => {
+export const editModule = async (
+    id: number,
+    newName: string
+): Promise<void> => {
     const tx = db.transaction("modules", "readwrite");
     const store = tx.objectStore("modules");
     await store.put({ id, name: newName });
     await tx.done;
-}
+};

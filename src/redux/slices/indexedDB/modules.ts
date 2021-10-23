@@ -1,15 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { AnyAction, createSlice } from "@reduxjs/toolkit";
 import { StoreStatus } from "./";
-
-export type ModuleType = {
-    name: string;
-};
+import { Module } from "../../../services/indexedDB";
 
 export type ModulesInitialState = {
     status: StoreStatus;
-    list: ModuleType[];
+    list: Module[];
     error: any;
 };
+
+export interface ModulesAction extends AnyAction {
+    payload: Module[];
+}
+
+export interface ModuleErrorAction extends AnyAction {
+    payload: any;
+}
 
 export const modulesInitialState: ModulesInitialState = {
     status: StoreStatus.Done,
@@ -33,11 +38,11 @@ export const moduleSlice = createSlice({
         delete: (state, action) => {
             state.status = StoreStatus.Updating;
         },
-        done: (state, action) => {
+        done: (state, action: ModulesAction) => {
             state.list = action.payload;
             state.status = StoreStatus.Done;
         },
-        failure: (state, action) => {
+        failure: (state, action: ModuleErrorAction) => {
             state.status = StoreStatus.Failed;
             state.error = action.payload;
         },

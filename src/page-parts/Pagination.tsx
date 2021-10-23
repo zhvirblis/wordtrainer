@@ -1,15 +1,17 @@
 const LIMIT = 10;
 
+type PaginationProps = {
+    page: number;
+    total: number;
+    onChange: (newPage: number) => void;
+};
+
 export default function Pagination({
     page,
     total,
     // tslint:disable-next-line: no-empty
     onChange = () => {},
-}: {
-    page: number;
-    total: number;
-    onChange: (newPage: number) => void;
-}) {
+}: PaginationProps) {
     const totalPages = Math.ceil(total / LIMIT);
 
     return (
