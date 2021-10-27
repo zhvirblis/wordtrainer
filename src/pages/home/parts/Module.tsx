@@ -1,14 +1,16 @@
+import { Dispatch, SetStateAction } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { moduleActions } from "../../../redux/slices/indexedDB/modules";
+import { DeleteModuleModal } from "./ModuleList";
 
 type ModuleProps = {
-    id: number;
-    name: string;
-    key?: any;
+    module: any;
+    setDelModal: (module: any) => void;
 };
 
-export default function Module({ name, id }: ModuleProps) {
+export default function Module({ module, setDelModal }: ModuleProps) {
+    const { name, id } = module;
     const dispatch = useDispatch();
     const [renameState, setNewName] = useState({
         active: false,
@@ -55,7 +57,7 @@ export default function Module({ name, id }: ModuleProps) {
                                 type="button"
                                 className="btn btn-outline-danger btn-sm"
                                 onClick={() => {
-                                    dispatch(moduleActions.delete(id));
+                                    setDelModal(module);
                                 }}
                             >
                                 Delete
