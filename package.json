@@ -5,7 +5,8 @@
   "author": "zhvirblis",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "test": "react-scripts test"
   },
   "license": "MIT",
   "dependencies": {
@@ -42,6 +43,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^12.1.2",
     "@types/react-router-dom": "^5.1.8",
     "tslint": "^6.1.3",
     "tslint-config-prettier": "^1.18.0",
