@@ -4,6 +4,7 @@ import About from "./pages/about/About";
 import NotFound from "./pages/not-found/NotFound";
 import { history } from "./redux/index";
 import RoutesIds from "./enums/routes";
+import SetList from "./pages/set-list/SetList";
 
 const routes = [
     {
@@ -16,6 +17,12 @@ const routes = [
         id: RoutesIds.ABOUT_ROUTE,
         path: "/about",
         component: About,
+        exact: true,
+    },
+    {
+        id: RoutesIds.SET_LIST,
+        path: "/sets",
+        component: SetList,
         exact: true,
     },
     {
