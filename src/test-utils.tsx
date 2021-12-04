@@ -1,10 +1,9 @@
-import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import createSagaMiddleware, { SagaMiddleware } from "redux-saga";
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
-import { dbReducer } from "./redux/slices/indexedDB";
-import { moduleReducer } from "./redux/slices/indexedDB/modules";
+import { dbReducer } from "./features/indexDB/slice";
+import { moduleReducer } from "./features/modules/slice";
 
 const sagaMiddleware: SagaMiddleware = createSagaMiddleware();
 

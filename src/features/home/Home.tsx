@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import Header from "../../page-parts/Header";
+import Header from "../../common/page-parts/Header";
 import {
     dbSelector,
     DBStateInterface,
     DBStatus,
-} from "../../redux/slices/indexedDB";
-import AddNewModule from "./parts/AddNewModule";
-import ModuleList from "./parts/ModuleList";
+} from "../indexDB/slice";
+import AddNewModule from "../modules/AddNew";
+import ModuleList from "../modules/List";
 
 export default function Home() {
     const db: DBStateInterface = useSelector(dbSelector);

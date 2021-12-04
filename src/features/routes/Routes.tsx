@@ -1,10 +1,10 @@
 import { Switch, Route, Router } from "react-router-dom";
-import Home from "./pages/home/Home";
-import About from "./pages/about/About";
-import NotFound from "./pages/not-found/NotFound";
-import { history } from "./redux/index";
-import RoutesIds from "./enums/routes";
-import SetList from "./pages/set-list/SetList";
+import Home from "../home/Home";
+import About from "../about/About";
+import NotFound from "../not-found/NotFound";
+import { history } from "../../app/store";
+import RoutesIds from "./enums";
+import SetList from "../sets/List";
 
 const routes = [
     {

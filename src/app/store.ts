@@ -1,10 +1,10 @@
 import { configureStore, Store } from "@reduxjs/toolkit";
 
 import createSagaMiddleware, { SagaMiddleware } from "redux-saga";
-import sagas from "./sagas";
+import sagas from "./rootSaga";
 import { createBrowserHistory, History } from "history";
-import { dbReducer } from "./slices/indexedDB";
-import { moduleReducer } from "./slices/indexedDB/modules";
+import { dbReducer } from "../features/indexDB/slice";
+import { moduleReducer } from "../features/modules/slice";
 
 export const history: History = createBrowserHistory();
 

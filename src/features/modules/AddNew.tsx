@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { moduleActions } from "../../../redux/slices/indexedDB/modules";
+import { moduleActions } from "./slice";
 
 export default function AddNewModule() {
     const dispatch = useDispatch();

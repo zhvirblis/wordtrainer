@@ -1,21 +1,8 @@
-import { openDB, IDBPDatabase } from "idb";
-
-let db: IDBPDatabase;
+import { db } from "../indexDB/service";
 
 export type Module = {
     id: number;
     name: string;
-};
-
-export const newConn = async (): Promise<void> => {
-    db = await openDB("wordApp", 1, {
-        upgrade: (database) => {
-            database.createObjectStore("modules", {
-                keyPath: "id",
-                autoIncrement: true,
-            });
-        },
-    });
 };
 
 export const addNewModule = async (name: string): Promise<void> => {

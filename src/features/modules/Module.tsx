@@ -1,8 +1,6 @@
-import { Dispatch, SetStateAction } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { moduleActions } from "../../../redux/slices/indexedDB/modules";
-import { DeleteModuleModal } from "./ModuleList";
+import { moduleActions } from "./slice";
 
 type ModuleProps = {
     module: any;

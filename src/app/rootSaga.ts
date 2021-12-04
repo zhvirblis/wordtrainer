@@ -1,6 +1,6 @@
 import { spawn, all, AllEffect } from "redux-saga/effects";
-import { indexedDBSaga } from "./indexedDBSaga";
-import { modulesSaga } from "./indexedDBSaga/modules";
+import { indexedDBSaga } from "../features/indexDB/saga";
+import { modulesSaga } from "../features/modules/sagas";
 
 export default function* rootSaga(): Generator<AllEffect<any>> {
     const sagas = [indexedDBSaga, modulesSaga];

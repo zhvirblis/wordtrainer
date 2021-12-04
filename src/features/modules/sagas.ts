@@ -6,14 +6,14 @@ import {
     PutEffect,
     takeEvery,
 } from "@redux-saga/core/effects";
-import { moduleActions } from "../../slices/indexedDB/modules";
+import { moduleActions } from "./slice";
 import {
     addNewModule,
     getAllModules,
     deleteModule,
     editModule,
     Module,
-} from "../../../services/indexedDB";
+} from "./service";
 
 function* addNewModuleSaga(action: any): Generator {
     const name: string = action.payload;
