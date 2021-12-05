@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { moduleSelector, moduleActions } from "./slice";
 import { StoreStatus } from "../indexDB/slice";
-import Module from "./Module";
+import Module from "./Item";
 import { Modal, Button } from "react-bootstrap";
 import "./styles.css";
 

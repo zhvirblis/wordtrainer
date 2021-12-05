@@ -1,5 +1,5 @@
 import { render, screen } from '../../test-utils';
-import Module from './Module';
+import Module from './Item';
 
 const module = {
     id: 1,

@@ -2,6 +2,7 @@ import { Switch, Route, Router } from "react-router-dom";
 import Home from "../home/Home";
 import About from "../about/About";
 import NotFound from "../not-found/NotFound";
+import ModulePreview from "../modules/Preview";
 import { history } from "../../app/store";
 import RoutesIds from "./enums";
 import SetList from "../sets/List";
@@ -17,6 +18,12 @@ const routes = [
         id: RoutesIds.ABOUT_ROUTE,
         path: "/about",
         component: About,
+        exact: true,
+    },
+    {
+        id: RoutesIds.NOT_FOUND_ROUTE,
+        path: "/module/:id",
+        component: ModulePreview,
         exact: true,
     },
     {

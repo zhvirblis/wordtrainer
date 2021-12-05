@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { moduleActions } from "./slice";
 
 type ModuleProps = {
@@ -7,7 +8,7 @@ type ModuleProps = {
     setDelModal: (module: any) => void;
 };
 
-export default function Module({ module, setDelModal }: ModuleProps) {
+export default function ModuleItem({ module, setDelModal }: ModuleProps) {
     const { name, id } = module;
     const dispatch = useDispatch();
     const [renameState, setNewName] = useState({
@@ -19,7 +20,7 @@ export default function Module({ module, setDelModal }: ModuleProps) {
             <div>
                 {!renameState.active && (
                     <h3>
-                        <a href="#">{name}</a>
+                        <Link to={`/module/${id}`}>{name}</Link>
                     </h3>
                 )}
                 {renameState.active && (
