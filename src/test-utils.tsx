@@ -3,7 +3,7 @@ import createSagaMiddleware, { SagaMiddleware } from "redux-saga";
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { dbReducer } from "./features/indexDB/slice";
-import { moduleReducer } from "./features/modules/slice";
+import { moduleListReducer } from "./features/modules/slice";
 
 const sagaMiddleware: SagaMiddleware = createSagaMiddleware();
 
@@ -14,7 +14,7 @@ function render(
         store = configureStore({
             reducer: {
                 db: dbReducer,
-                modules: moduleReducer,
+                modules: moduleListReducer,
             },
             middleware: [sagaMiddleware],
         }),

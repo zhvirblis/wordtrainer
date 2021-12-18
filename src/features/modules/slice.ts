@@ -17,12 +17,12 @@ export interface ModuleErrorAction extends AnyAction {
 }
 
 export const modulesInitialState: ModulesInitialState = {
-    status: StoreStatus.Done,
+    status: StoreStatus.BeforeLoad,
     list: [],
     error: null,
 };
 
-export const moduleSlice = createSlice({
+export const moduleListSlice = createSlice({
     name: "modules",
     initialState: modulesInitialState,
     reducers: {
@@ -49,8 +49,12 @@ export const moduleSlice = createSlice({
     },
 });
 
-export const moduleReducer = moduleSlice.reducer;
+export const moduleListReducer = moduleListSlice.reducer;
 
-export const moduleActions = moduleSlice.actions;
+export const moduleListActions = moduleListSlice.actions;
 
-export const moduleSelector = (state: any) => state.modules;
+export const moduleListSelector = (state: any) => state.modules;
+
+export const moduleStatusSelector = (state: any) => state.modules.status;
+
+export const moduleSelector = (id: number) => (state: any) => state.modules.list.find((el: any) => el.id == id);

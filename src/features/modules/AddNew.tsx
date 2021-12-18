@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { moduleActions } from "./slice";
+import { moduleListActions } from "./slice";
 
 export default function AddNewModule() {
     const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function AddNewModule() {
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
-                        dispatch(moduleActions.add(name));
+                        dispatch(moduleListActions.add(name));
                         setName("");
                     }}
                 >

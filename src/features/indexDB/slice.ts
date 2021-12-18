@@ -5,6 +5,7 @@ import {
 } from "@reduxjs/toolkit";
 
 export enum StoreStatus {
+    BeforeLoad = "BeforeLoad",
     Loading = "Loading",
     Updating = "Updating",
     Failed = "Failed",

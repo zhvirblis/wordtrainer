@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { moduleActions } from "./slice";
+import { moduleListActions } from "./slice";
 
 type ModuleProps = {
     module: any;
@@ -70,7 +70,7 @@ export default function ModuleItem({ module, setDelModal }: ModuleProps) {
                                 className="btn btn-outline-success btn-sm"
                                 onClick={() => {
                                     dispatch(
-                                        moduleActions.edit({
+                                        moduleListActions.edit({
                                             id,
                                             name: renameState.newName,
                                         })
