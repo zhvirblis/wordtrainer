@@ -4,6 +4,7 @@ import { moduleListSelector, moduleListActions } from "./slice";
 import { StoreStatus } from "../indexDB/slice";
 import Module from "./Item";
 import { Modal, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 
@@ -36,6 +37,13 @@ export default function ModuleList() {
                 )}
                 {modules.status === StoreStatus.Done && (
                     <div className="list-group list-group-flush">
+                        <div className="module-item list-group-item">
+                            <div>
+                                <h3>
+                                    <Link to="/sets">All sets</Link>
+                                </h3>
+                            </div>
+                        </div>
                         {modules.list.map((module: any) => (
                             <Module
                                 key={module.id}

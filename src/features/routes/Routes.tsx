@@ -5,7 +5,7 @@ import NotFound from "../not-found/NotFound";
 import ModulePreview from "../modules/Preview";
 import { history } from "../../app/store";
 import RoutesIds from "./enums";
-import SetList from "../sets/List";
+import SetsPage from "../sets/Page";
 
 const routes = [
     {
@@ -29,7 +29,7 @@ const routes = [
     {
         id: RoutesIds.SET_LIST,
         path: "/sets",
-        component: SetList,
+        component: SetsPage,
         exact: true,
     },
     {
