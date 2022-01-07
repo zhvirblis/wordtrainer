@@ -4,6 +4,7 @@ enum RoutesIds {
     NOT_FOUND_ROUTE = "NOT_FOUND_ROUTE",
     MODULE_PREVIEW = "MODULE_PREVIEW",
     SET_LIST = "SET_LIST",
+    SET_PAGE = "SET_PAGE"
 }
 
 export default RoutesIds;
