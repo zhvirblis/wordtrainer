@@ -4,8 +4,8 @@ import About from "../about/About";
 import NotFound from "../not-found/NotFound";
 import ModulePreview from "../modules/Preview";
 import RoutesIds from "./enums";
-import SetsPage from "../sets/Set";
-import NewSet from "../sets/new/NewSet";
+import SetsPage from "../sets/SetList";
+import NewSet from "../sets/new";
 
 const routes = [
     {

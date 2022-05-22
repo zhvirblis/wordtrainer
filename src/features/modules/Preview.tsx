@@ -5,7 +5,7 @@ import Header from "../../common/page-parts/Header";
 import { StoreStatus } from "../indexDB/slice";
 import { moduleListActions, moduleSelector, moduleStatusSelector } from "./slice";
 
-export default function ModulePreview({match}: any) {
+export default function ModulePreview() {
     const dispatch = useDispatch();
     const modulesStatus = useSelector(moduleStatusSelector);
     const {id} = useParams();
