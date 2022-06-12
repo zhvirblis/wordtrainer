@@ -3,7 +3,7 @@ import createSagaMiddleware, { SagaMiddleware } from "redux-saga";
 import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { dbReducer } from "./features/indexDB/slice";
-import { moduleListReducer } from "./features/modules/slice";
+import { moduleListReducer } from "./features/module/slice";
 
 const sagaMiddleware: SagaMiddleware = createSagaMiddleware();
 

@@ -8,7 +8,7 @@ type ModuleProps = {
     setDelModal: (module: any) => void;
 };
 
-export default function ModuleItem({ module, setDelModal }: ModuleProps) {
+export default function ModuleComponent({ module, setDelModal }: ModuleProps) {
     const { name, id } = module;
     const dispatch = useDispatch();
     const [renameState, setNewName] = useState({

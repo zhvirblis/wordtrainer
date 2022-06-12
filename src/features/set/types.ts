@@ -1,5 +1,5 @@
-import { Item } from "../items/types";
-import { SetSettings } from "./settings/types";
+import Item from "../item";
+import SetSettings from "./settings";
 
 export interface Set {
     id?: number;

@@ -1,4 +1,4 @@
-import Routes from "../features/routes/Routes";
+import Routes from "./routes";
 
 export default function App() {
     return <Routes />;

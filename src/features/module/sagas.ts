@@ -12,8 +12,8 @@ import {
     getAllModules,
     deleteModule,
     editModule,
-    Module,
 } from "./service";
+import Module from ".";
 
 function* addNewModuleSaga(action: any): Generator {
     const name: string = action.payload;

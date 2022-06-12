@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { moduleListSelector, moduleListActions } from "./slice";
 import { StoreStatus } from "../indexDB/slice";
-import Module from "./Item";
+import ModuleComponent from "./Component";
 import { Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
@@ -45,7 +45,7 @@ export default function ModuleList() {
                             </div>
                         </div>
                         {modules.list.map((module: any) => (
-                            <Module
+                            <ModuleComponent
                                 key={module.id}
                                 module={module}
                                 setDelModal={openDeleteModal}

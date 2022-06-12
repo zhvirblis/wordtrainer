@@ -2,11 +2,11 @@ import React, { FormEvent, useState } from "react";
 import { Button, Card, Container, Form, Col, Row } from "react-bootstrap";
 import Header from "../../../common/page-parts/Header";
 import SaveCancel from "../../../common/page-parts/SaveCancel";
-import ItemComponent from "../../items/Item";
-import { Item } from "../../items/types";
+import ItemComponent from "../../item/Component";
+import Item from "../../item";
 import { v4 as uuid } from 'uuid';
 
-export default function NewSet() {
+export default function NewSetPage() {
     const [items, setItem] = useState<Item[]>([]);
 
     const handleSubmit = (e: FormEvent) => {

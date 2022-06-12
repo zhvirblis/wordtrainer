@@ -1,9 +1,9 @@
-import { Module } from "./service";
+import Module from ".";
 
 export interface ModuleSchema {
     key: number;
-        value: Module;
-        indexes: {
+    value: Module;
+    indexes: {
         id: number;
     }
 }

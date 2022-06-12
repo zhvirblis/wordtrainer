@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
-import { Item } from './types';
+import Item from '.';
 import './styles.css';
 
 export default function ItemComponent({term, defenition, example, transcription, ...others}: Item) {

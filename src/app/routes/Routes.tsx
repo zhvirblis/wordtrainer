@@ -1,23 +1,23 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Home from "../home/Home";
-import About from "../about/About";
-import NotFound from "../not-found/NotFound";
-import ModulePreview from "../modules/Preview";
+import HomePage from "../../features/home/Page";
+import AboutPage from "../../features/about/Page";
+import NotFound from "../../features/not-found/Page";
+import ModulePreview from "../../features/module/Preview";
 import RoutesIds from "./enums";
-import SetsPage from "../sets/SetList";
-import NewSet from "../sets/new";
+import SetListPage from "../../features/set/ListPage";
+import NewSet from "../../features/set/new/Page";
 
 const routes = [
     {
         id: RoutesIds.MAIN_ROUTE,
         path: "/",
-        element: <Home />,
+        element: <HomePage />,
         exact: true,
     },
     {
         id: RoutesIds.ABOUT_ROUTE,
         path: "/about",
-        element: <About />,
+        element: <AboutPage />,
         exact: true,
     },
     {
@@ -29,7 +29,7 @@ const routes = [
     {
         id: RoutesIds.SET_LIST,
         path: "/sets",
-        element: <SetsPage />,
+        element: <SetListPage />,
         exact: true,
     },
     {

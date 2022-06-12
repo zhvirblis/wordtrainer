@@ -5,10 +5,10 @@ import {
     DBStateInterface,
     DBStatus,
 } from "../indexDB/slice";
-import AddNewModule from "../modules/AddNew";
-import ModuleList from "../modules/List";
+import AddNewModule from "../module/AddNew";
+import ModuleList from "../module/List";
 
-export default function Home() {
+export default function HomePage() {
     const db: DBStateInterface = useSelector(dbSelector);
     return (
         <div>

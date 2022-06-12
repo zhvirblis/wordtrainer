@@ -1,4 +1,4 @@
-import { Set } from "../sets/types";
+import Set from ".";
 
 export interface SetSchema {
     key: number;

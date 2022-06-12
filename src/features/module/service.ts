@@ -1,9 +1,5 @@
 import { db } from "../indexDB/service";
-
-export type Module = {
-    id?: number;
-    name: string;
-};
+import Module from ".";
 
 export const addNewModule = async (name: string): Promise<void> => {
     await db.add("modules", {

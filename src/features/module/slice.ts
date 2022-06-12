@@ -1,6 +1,6 @@
 import { AnyAction, createSlice } from "@reduxjs/toolkit";
 import { StoreStatus } from "../indexDB/slice";
-import { Module } from "./service";
+import Module from ".";
 
 export type ModulesInitialState = {
     status: StoreStatus;
