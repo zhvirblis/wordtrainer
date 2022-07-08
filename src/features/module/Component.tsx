@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { moduleListActions } from "./slice";
+import { useModules } from "./hooks";
 
 type ModuleProps = {
     module: any;
@@ -10,7 +9,7 @@ type ModuleProps = {
 
 export default function ModuleComponent({ module, setDelModal }: ModuleProps) {
     const { name, id } = module;
-    const dispatch = useDispatch();
+    const { edit } = useModules();
     const [renameState, setNewName] = useState({
         active: false,
         newName: name,
@@ -69,12 +68,7 @@ export default function ModuleComponent({ module, setDelModal }: ModuleProps) {
                                 type="button"
                                 className="btn btn-outline-success btn-sm"
                                 onClick={() => {
-                                    dispatch(
-                                        moduleListActions.edit({
-                                            id,
-                                            name: renameState.newName,
-                                        })
-                                    );
+                                    edit(id, renameState.newName);
                                 }}
                             >
                                 Save

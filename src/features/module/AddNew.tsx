@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { moduleListActions } from "./slice";
+import { useModules } from "./hooks";
 
 export default function AddNewModule() {
-    const dispatch = useDispatch();
+    const { add } = useModules();
     const [name, setName] = useState<string>("");
     return (
         <div className="card add-new-module">
@@ -14,7 +13,7 @@ export default function AddNewModule() {
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
-                        dispatch(moduleListActions.add(name));
+                        add(name);
                         setName("");
                     }}
                 >

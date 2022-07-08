@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { moduleListSelector, moduleListActions } from "./slice";
+import { useState } from "react";
 import { StoreStatus } from "../indexDB/slice";
 import ModuleComponent from "./Component";
 import { Modal, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import { useGetModules } from "./hooks";
 
 
 export type DeleteModuleModal = {
@@ -14,16 +13,12 @@ export type DeleteModuleModal = {
 };
 
 export default function ModuleList() {
-    const dispatch = useDispatch();
     const [delModal, setDelModal] = useState<DeleteModuleModal>({opened: false, module: null});
-    useEffect(() => {
-        dispatch(moduleListActions.get());
-    }, []);
-    const modules = useSelector(moduleListSelector);
+    const { data: modules, remove } = useGetModules();
     const openDeleteModal = (module: any) => setDelModal({opened: true, module});
     const closeDeleteModal = () => setDelModal({opened: false, module: null});
     const deleteModule = () => {
-        dispatch(moduleListActions.delete(delModal.module.id));
+        remove(delModal.module.id);
         closeDeleteModal();
     }
     return (
