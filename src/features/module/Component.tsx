@@ -68,7 +68,7 @@ export default function ModuleComponent({ module, setDelModal }: ModuleProps) {
                                 type="button"
                                 className="btn btn-outline-success btn-sm"
                                 onClick={() => {
-                                    edit(id, renameState.newName);
+                                    edit({id, name: renameState.newName});
                                 }}
                             >
                                 Save
