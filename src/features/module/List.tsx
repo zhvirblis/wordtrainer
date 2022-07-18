@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { StoreStatus } from "../indexDB/slice";
 import ModuleComponent from "./Component";
 import { Modal, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import "./styles.css";
-import { useGetModules } from "./hooks";
+import { useModules } from "./hooks";
+import { Link } from "react-router-dom";
 
 
 export type DeleteModuleModal = {
@@ -14,7 +13,7 @@ export type DeleteModuleModal = {
 
 export default function ModuleList() {
     const [delModal, setDelModal] = useState<DeleteModuleModal>({opened: false, module: null});
-    const { data: modules, remove } = useGetModules();
+    const { modules, remove } = useModules();
     const openDeleteModal = (module: any) => setDelModal({opened: true, module});
     const closeDeleteModal = () => setDelModal({opened: false, module: null});
     const deleteModule = () => {
@@ -24,30 +23,22 @@ export default function ModuleList() {
     return (
         <>
             <div className="modules-list">
-                {modules.status === StoreStatus.Loading && (
-                    <div className="card-body message">Loading...</div>
-                )}
-                {modules.status === StoreStatus.Updating && (
-                    <div className="card-body message">Updating...</div>
-                )}
-                {modules.status === StoreStatus.Done && (
-                    <div className="list-group list-group-flush">
-                        <div className="module-item list-group-item">
-                            <div>
-                                <h3>
-                                    <Link to="/sets">All sets</Link>
-                                </h3>
-                            </div>
+                <div className="list-group list-group-flush">
+                    <div className="module-item list-group-item">
+                        <div>
+                            <h3>
+                                <Link to="/sets">All sets</Link>
+                            </h3>
                         </div>
-                        {modules.list.map((module: any) => (
-                            <ModuleComponent
-                                key={module.id}
-                                module={module}
-                                setDelModal={openDeleteModal}
-                            />
-                        ))}
                     </div>
-                )}
+                    {modules.map((module: any) => (
+                        <ModuleComponent
+                            key={module.id}
+                            module={module}
+                            setDelModal={openDeleteModal}
+                        />
+                    ))}
+                </div>
             </div>
             <Modal show={delModal.opened} onHide={closeDeleteModal}>
                 <Modal.Header closeButton>

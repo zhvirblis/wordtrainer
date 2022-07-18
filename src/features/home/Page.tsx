@@ -1,25 +1,24 @@
-import { useSelector } from "react-redux";
+import { Suspense } from "react";
 import Header from "../../common/page-parts/Header";
-import {
-    dbSelector,
-    DBStateInterface,
-    DBStatus,
-} from "../indexDB/slice";
+import useIndexDB from "../indexDB/hooks";
+import { DBStatus } from "../indexDB/types";
 import AddNewModule from "../module/AddNew";
 import ModuleList from "../module/List";
 
 export default function HomePage() {
-    const db: DBStateInterface = useSelector(dbSelector);
+    const db = useIndexDB();
     return (
         <div>
             <Header />
             <div className="container">
+                <Suspense fallback={<div>Loading...</div>}>
                 {db?.status === DBStatus.Done && (
                     <>
                         <AddNewModule />
                         <ModuleList />
                     </>
                 )}
+                </Suspense>
             </div>
         </div>
     );

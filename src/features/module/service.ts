@@ -1,13 +1,14 @@
 import { db } from "../indexDB/service";
 import Module from ".";
 
-export const addNewModule = async (name: string): Promise<void> => {
-    await db.add("modules", {
+export const addNewModule = async (name: string): Promise<number> => {
+    return await db.add("modules", {
         name,
     });
 };
 
 export const getAllModules = async (): Promise<Module[]> => {
+    console.log('getAllModules');
     const tx = db.transaction("modules", "readonly");
     const store = tx.objectStore("modules");
     const modules: Module[] = await store.getAll();

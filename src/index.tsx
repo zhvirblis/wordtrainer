@@ -1,13 +1,13 @@
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import store from "./app/store";
+import { createRoot } from 'react-dom/client';
+import { RecoilRoot } from "recoil";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap";
 import App from "./app/App";
 
-ReactDOM.render(
-    <Provider store={store}>
+const container = document.getElementById("root");
+const root = createRoot(container!);
+root.render(
+    <RecoilRoot>
         <App />
-    </Provider>,
-    document.getElementById("root")
+    </RecoilRoot>
 );

@@ -6,6 +6,7 @@ import ModulePreview from "../../features/module/Preview";
 import RoutesIds from "./enums";
 import SetListPage from "../../features/set/ListPage";
 import NewSet from "../../features/set/new/Page";
+import { Suspense } from "react";
 
 const routes = [
     {
@@ -57,13 +58,15 @@ export const getRouteConfig = (id: RoutesIds) => {
 
 export default function AppRoutes() {
     return (
-        <Router>
-            <Routes>
-                {routes.map((r) => {
-                    const { id, ...props } = r;
-                    return <Route key={id} {...props} />;
-                })}
-            </Routes>
-        </Router>
+        <Suspense fallback={<div>Loading...</div>}>
+            <Router>
+                <Routes>
+                    {routes.map((r) => {
+                        const { id, ...props } = r;
+                        return <Route key={id} {...props} />;
+                    })}
+                </Routes>
+            </Router>
+        </Suspense>
     );
 }
