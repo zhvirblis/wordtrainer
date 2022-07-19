@@ -1,4 +1,4 @@
-import { db } from "../indexDB/service";
+import { db } from "../../common/indexDB/service";
 import Module from ".";
 
 export const addNewModule = async (name: string): Promise<number> => {

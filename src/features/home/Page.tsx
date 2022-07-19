@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Header from "../../common/page-parts/Header";
-import useIndexDB from "../indexDB/hooks";
-import { DBStatus } from "../indexDB/types";
+import useIndexDB from "../../common/indexDB/hooks";
+import { DBStatus } from "../../common/indexDB/types";
 import AddNewModule from "../module/AddNew";
 import ModuleList from "../module/List";
 

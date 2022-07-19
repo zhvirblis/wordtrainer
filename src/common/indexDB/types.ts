@@ -1,6 +1,6 @@
 import { DBSchema } from "idb";
-import { ModuleSchema } from "../module/schema";
-import { SetSchema } from "../set/schema";
+import { ModuleSchema } from "../../features/module/schema";
+import { SetSchema } from "../../features/set/schema";
 
 export interface AppDBSchema extends DBSchema {
     modules: ModuleSchema;

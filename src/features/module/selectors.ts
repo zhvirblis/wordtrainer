@@ -1,8 +1,8 @@
 import { Module } from "../module/types";
 import { selector } from "recoil";
-import { dbState } from "../indexDB/atom";
+import { dbState } from "../../common/indexDB/atom";
 import { getAllModules } from "./service";
-import { DBStatus } from "../indexDB/types";
+import { DBStatus } from "../../common/indexDB/types";
 
 export const modulesStateSelector = selector<Module[]>({
     key: "modulesSelector",

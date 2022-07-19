@@ -1,4 +1,4 @@
-import { db } from "../indexDB/service";
+import { db } from "../../common/indexDB/service";
 import { Set } from "./types";
 
 export const addNewSet = async (set: Set): Promise<void> => {

@@ -1,4 +1,4 @@
-import useIndexDB from "../features/indexDB/hooks";
+import useIndexDB from "../common/indexDB/hooks";
 import Routes from "./routes";
 
 export default function App() {
