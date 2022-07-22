@@ -10,6 +10,8 @@ export const modulesStateSelector = selector<Module[]>({
         const dbInit = get(dbState);
         if (dbInit.status === DBStatus.Done) {
             return getAllModules();
+        } else if (dbInit.status === DBStatus.Failed) {
+            throw new Error("Connect to database failed");
         } else {
             return [];
         }

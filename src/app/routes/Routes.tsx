@@ -58,15 +58,13 @@ export const getRouteConfig = (id: RoutesIds) => {
 
 export default function AppRoutes() {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <Router>
-                <Routes>
-                    {routes.map((r) => {
-                        const { id, ...props } = r;
-                        return <Route key={id} {...props} />;
-                    })}
-                </Routes>
-            </Router>
-        </Suspense>
+        <Router>
+            <Routes>
+                {routes.map((r) => {
+                    const { id, ...props } = r;
+                    return <Route key={id} {...props} />;
+                })}
+            </Routes>
+        </Router>
     );
 }
