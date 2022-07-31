@@ -6,7 +6,7 @@ import ModulePreview from "../../features/module/Preview";
 import RoutesIds from "./enums";
 import SetListPage from "../../features/set/ListPage";
 import NewSet from "../../features/set/new/Page";
-import { Suspense } from "react";
+import PageContainer from "../../common/page-parts/PageContainer";
 
 const routes = [
     {
@@ -61,8 +61,10 @@ export default function AppRoutes() {
         <Router>
             <Routes>
                 {routes.map((r) => {
-                    const { id, ...props } = r;
-                    return <Route key={id} {...props} />;
+                    const { id, element, ...props } = r;
+                    return (
+                        <Route key={id} element={<PageContainer>{element}</PageContainer>} {...props} />
+                    );
                 })}
             </Routes>
         </Router>

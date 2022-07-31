@@ -8,7 +8,6 @@ export const addNewModule = async (name: string): Promise<number> => {
 };
 
 export const getAllModules = async (): Promise<Module[]> => {
-    console.log('getAllModules');
     const tx = db.transaction("modules", "readonly");
     const store = tx.objectStore("modules");
     const modules: Module[] = await store.getAll();
