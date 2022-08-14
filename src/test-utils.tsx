@@ -1,4 +1,6 @@
 import { render as rtlRender } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import { RecoilRoot } from 'recoil';
 
 function render(
     ui: any,
@@ -8,7 +10,7 @@ function render(
     }: any = {}
 ) {
     function Wrapper({ children }: any) {
-        return <>{children}</>
+        return <RecoilRoot><BrowserRouter>{children}</BrowserRouter></RecoilRoot>
     }
     return rtlRender(ui, { wrapper: Wrapper, ...renderOptions })
 }
