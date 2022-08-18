@@ -1,9 +1,18 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useModules } from "./hooks";
 
 export default function AddNewModule() {
     const { add } = useModules();
     const [name, setName] = useState<string>("");
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        name.trim();
+        if (!name) {
+            return;
+        }
+        add(name);
+        setName("");
+    }
     return (
         <div className="card add-new-module">
             <div className="card-header">
@@ -11,11 +20,7 @@ export default function AddNewModule() {
             </div>
             <div className="card-body">
                 <form
-                    onSubmit={(e) => {
-                        e.preventDefault();
-                        add(name);
-                        setName("");
-                    }}
+                    onSubmit={handleSubmit}
                 >
                     <div className="form-group">
                         <input
