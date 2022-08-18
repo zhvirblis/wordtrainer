@@ -14,6 +14,7 @@ export default function HomePage() {
                     <ModuleList />
                 </>
             )}
+            {(db?.status === DBStatus.Loading || db?.status === DBStatus.NotConnected) && <>Loading...</>}
             {db?.status === DBStatus.Failed && (
                 <Alert className="alert" key="danger" variant="danger">
                     Connect to database failed
