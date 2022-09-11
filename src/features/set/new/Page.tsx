@@ -27,7 +27,6 @@ export default function NewSetPage() {
 
     return (
         <div>
-            <Header />
             <Container>
                 <form onSubmit={(e) => handleSubmit(e)}>
                     <Card className="add-new-module">
